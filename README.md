@@ -11,6 +11,6 @@ Leetcode practice in Java
 
 ##堆
 
-题号 | 题目 | 次优解+优化代码 | 优化博客 | 
-:-: | :-: | :-: | :-: | :-: |
+题号 | 题目 | 次优解+优化代码 | 优化博客 
+:-: | :-: | :-: | :-: | :-:
 20 | [Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses) | - | - | - |
