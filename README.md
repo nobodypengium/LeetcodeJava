@@ -9,8 +9,8 @@ Leetcode practice in Java
 
 # 完成情况更新
 
-##堆
+## 堆
 
-题号 | 题目 | 次优解+优化代码 | 优化博客 
-:-: | :-: | :-: | :-: | :-:
-20 | [Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses) | - | - | - |
+题号 | 题目 | 次优解+优化代码 | 讲解
+:---: | :------------------: | :---------: | :---------: 
+20 | [Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses) | - | - |
