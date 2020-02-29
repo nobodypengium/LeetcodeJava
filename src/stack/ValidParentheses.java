@@ -6,5 +6,5 @@ public class ValidParentheses {
     hello
     branch
     branch_new
-    fuck
+    fuck_hot_fix
 }
