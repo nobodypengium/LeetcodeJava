@@ -1,1 +1,4 @@
-aaa
+package stack;
+
+public class ValidParentheses {
+}
