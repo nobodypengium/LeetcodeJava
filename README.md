@@ -22,3 +22,5 @@ Leetcode practice in Java
 难道是因为user.name和user.email没设置？要冲突咯
 
 跨团队写作咯
+
+hot_fix
