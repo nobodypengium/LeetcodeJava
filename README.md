@@ -14,13 +14,3 @@ Leetcode practice in Java
 题号 | 题目 | 次优解+优化代码 | 讲解
 :---: | :------------------: | :---------: | :---------: 
 20 | [Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses) | - | - |
-
-添加一行
-
-我不是换了新的账号了嘛?
-
-难道是因为user.name和user.email没设置？要冲突咯
-
-跨团队写作咯
-
-hot_fix
