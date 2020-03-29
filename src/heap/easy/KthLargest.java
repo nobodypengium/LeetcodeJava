@@ -1,4 +1,4 @@
-package stack.easy;
+package heap.easy;
 
 import java.util.PriorityQueue;
 

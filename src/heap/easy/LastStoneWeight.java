@@ -1,4 +1,4 @@
-package stack.easy;
+package heap.easy;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
@@ -24,8 +24,8 @@ public class LastStoneWeight {
         }
         if(priorityQueue.size()==0)
             return 0;
-        else
-            return priorityQueue.peek();
+        else{
+            return priorityQueue.peek();}
     }
 
     class NewComparator implements Comparator<Integer> {
