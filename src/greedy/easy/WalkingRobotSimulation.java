@@ -95,4 +95,40 @@ public class WalkingRobotSimulation {
         }
         return max_dist;
     }
+
+    public int robotSimPractice(int[] commands, int[][] obstacles){
+        int[] dx = new int[]{0,1,0,-1};
+        int[] dy = new int[]{1,0,-1,0};
+        int posx =0;
+        int posy =0;
+        int face = 0;
+        int max = 0;
+        Set<Long> obsSet = new HashSet<>();
+        for(int[] obstacle:obstacles){
+            long obsx=(long)obstacle[0]+30000;
+            long obsy=(long)obstacle[1]+30000;
+            obsSet.add((obsx<<16)+obsy);
+        }
+        for(int command:commands){
+            if(command==-2){
+                face=(face+3)%4;
+            }
+            else if(command==-1){
+                face=(face+1)%4;
+            }
+            else{
+                while(command--!=0) {
+                    int tmpx = posx + dx[face];
+                    int tmpy = posy + dy[face];
+                    long positionTo = (((long) tmpx + 30000) << 16) + (((long) tmpy) + 30000);
+                    if (!obsSet.contains(positionTo)) {
+                        posx = tmpx;
+                        posy = tmpy;
+                        max = Math.max(max, posx * posx + posy * posy);
+                    }
+                }
+            }
+        }
+        return max;
+    }
 }
