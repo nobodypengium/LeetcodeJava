@@ -66,7 +66,7 @@ public class MaximizeSumOfArrayAfterKNegations {
     // 计数排序版本可以避免高复杂度的排序操作，因为只要O(N)就可以相当于排序了
     public int largestSumAfterKNegations3(int[] A, int K) {
         int sum=0;
-        int[] count = new int[201]; // -100<=A[i]<=100
+        int[] count = new int[201]; // -100<=A[i]<=100 必须平移，因为数组没有负索引
         for(int i:A){ //计数排序
             count[i+100]++;
         }
@@ -76,8 +76,8 @@ public class MaximizeSumOfArrayAfterKNegations {
         while(K-->0){
             while(count[minIndex]==0)//找到最小的数的位置
                 minIndex++;
-            count[minIndex]--;
-            count[200-minIndex]++;
+            count[minIndex]--; //找一个数
+            count[200-minIndex]++; //给上一行找到的数变负
             if(minIndex>=100)
                 minIndex=200-minIndex;
         }
