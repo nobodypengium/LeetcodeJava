@@ -130,4 +130,33 @@ public class MatrixCellsinDistanceOrder {
             this.c=c;
         }
     }
+
+    public int[][] allCellsDistOrder4(int R, int C, int r0, int c0) {
+        int[][] result = new int[R*C][2];
+        int cnt = 0; //记录已经填入数组的点的数量，作为循环终止条件
+        int[] factor = new int[]{1,-1};
+        int dist = 0; //遍历每种距离，并找寻这种距离下的所有点，将dist分配给col加的和row加的
+        while(cnt<R*C){
+            for(int toCol=0;toCol<=dist;toCol++){ //将dist首先全部给col，然后渐渐分配给row
+                for(int i=0;i<2;i++){
+                    int c = c0 + factor[i]*toCol;
+                    for(int j=0;j<2;j++){
+                        int r = r0 + factor[j]*(dist-toCol);
+                        if(c>=0&&r>=0&&c<C&&r<R){
+                            result[cnt][0]=r;
+                            result[cnt][1]=c;
+                            cnt++;
+                        }
+                        //终止条件，四个顶点只能添加进一次数组
+                        if(factor[j]*(dist-toCol)==0)
+                            break;
+                    }
+                    if(factor[i]*toCol==0)
+                        break; //终止条件，四个顶点只能添加进一次数组
+                }
+            }
+            dist++;
+        }
+        return result;
+    }
 }
