@@ -30,6 +30,15 @@ public class RelativeSortArray {
         quickSort(arr1,0,arr1.length-1);
         return arr1;
     }
+
+    public int[] relativeSortArray3(int[] arr1, int[] arr2) {
+        record = new HashMap<>();
+        for(int i=0;i<arr2.length;i++)
+            record.put(arr2[i],i);
+        shellSort(arr1);
+        return arr1;
+    }
+
     // 快速排序：直接在数组中原地修改
     public void quickSort(int[] arr,int lo,int hi){
         if(lo>=hi) return; //终止条件
@@ -44,6 +53,23 @@ public class RelativeSortArray {
         swap(arr,lo,j);
         quickSort(arr,lo,j-1);
         quickSort(arr,j+1,hi);
+    }
+
+    // 希尔排序
+    private void shellSort(int[] arr1){
+        int gap;
+        for(gap=arr1.length/2;gap>0;gap/=2){
+            //插入排序
+            for(int i=gap;i<arr1.length;i++){
+                int insertion = arr1[i];
+                //如果前面有比当前比较的i位置的值大的，挪出空来
+                int j;
+                for(j=i-gap;j>=0&&less(insertion,arr1[j]);j=j-gap){
+                    arr1[j+gap]=arr1[j];
+                }
+                arr1[j+gap]=insertion;
+            }
+        }
     }
 
     public void swap(int[] arr, int i, int j){
