@@ -33,4 +33,27 @@ public class MajorityElement {
         }
         return candidate;
     }
+    public int majorityElement3(int[] nums){
+//        递归函数入口
+        return majorityElementRec(nums,0,nums.length-1);
+    }
+    public int majorityElementRec(int[] nums,int lo, int hi){
+        if(lo==hi) //终止条件
+            return nums[lo];
+        // 如果没有归并到最小块，逐渐弄到最小块，反复执行majorityElementRec
+        int loMajority = majorityElementRec(nums,lo,lo+(hi-lo)/2);
+        int hiMajority = majorityElementRec(nums,lo+(hi-lo)/2,hi);
+        if(loMajority==hiMajority)
+            return loMajority;
+        else
+            return countMajority(nums,loMajority,lo,hi)>countMajority(nums,hiMajority,lo,hi)?loMajority:hiMajority;
+    }
+    public int countMajority(int[] nums,int majority,int lo,int hi){
+        int count=0;
+        for(int i=lo;i<=hi;i++){
+            if(nums[i]==majority)
+                count++;
+        }
+        return count;
+    }
 }
